@@ -1,0 +1,236 @@
+{
+  "name": "Aiden Lapierre",
+  "school": "International School of The Hague",
+  "siteUrl": "https://realadlsmart-cpu.github.io/aiden-lapierre-portfolio",
+  "contact": {
+    "approved": false,
+    "email": "",
+    "socials": []
+  },
+  "intro": "I'm Aiden, a student in the Netherlands. I photograph places and moving subjects, take part in Model UN, and build electronics and computing projects.",
+  "galleries": [
+    {
+      "slug": "landscape",
+      "title": "Landscape",
+      "description": "Natural environments, changing light and the details of a place.",
+      "photos": []
+    },
+    {
+      "slug": "street",
+      "title": "Street & urban",
+      "description": "Architecture, everyday moments and life in cities.",
+      "photos": []
+    },
+    {
+      "slug": "wildlife",
+      "title": "Wildlife",
+      "description": "Animals, observation and patient photography.",
+      "photos": []
+    },
+    {
+      "slug": "aviation",
+      "title": "Aviation",
+      "description": "Aircraft and moving subjects, with an interest in plane spotting.",
+      "photos": []
+    },
+    {
+      "slug": "film",
+      "title": "Film",
+      "description": "Photographs made on film. A space for scans and notes about the process.",
+      "photos": []
+    }
+  ],
+  "conferences": [
+    {
+      "slug": "munish",
+      "name": "MUNISH",
+      "country": "Philippines",
+      "committee": "SPC2",
+      "award": "",
+      "description": "Representing the Philippines in the Special Political and Decolonization Committee.",
+      "date": "",
+      "topics": [],
+      "reflection": "",
+      "documents": [],
+      "photos": []
+    },
+    {
+      "slug": "bsnmun",
+      "name": "BSNMUN",
+      "country": "Israel",
+      "committee": "Security Council",
+      "award": "Honorable mention for best delegate",
+      "description": "Representing Israel in the Security Council.",
+      "date": "",
+      "topics": [],
+      "reflection": "",
+      "documents": [],
+      "photos": []
+    },
+    {
+      "slug": "isumun",
+      "name": "ISUMUN",
+      "country": "Slovakia",
+      "committee": "NATO / OTAN",
+      "award": "Honorable mention for best delegate",
+      "description": "Representing Slovakia in NATO / OTAN.",
+      "date": "",
+      "topics": [],
+      "reflection": "",
+      "documents": [],
+      "photos": []
+    },
+    {
+      "slug": "hagamun",
+      "name": "HAGAMUN",
+      "country": "Germany",
+      "committee": "HSC",
+      "award": "Honorable mention for best delegate",
+      "description": "Representing Germany in HSC.",
+      "date": "",
+      "topics": [],
+      "reflection": "",
+      "documents": [],
+      "photos": []
+    },
+    {
+      "slug": "hmun",
+      "name": "HMUN",
+      "country": "USA",
+      "committee": "GA4",
+      "award": "Best delegate",
+      "description": "Representing the USA in GA4.",
+      "date": "",
+      "topics": [],
+      "reflection": "",
+      "documents": [],
+      "photos": []
+    }
+  ],
+  "projects": [
+    {
+      "slug": "fpv-drone",
+      "title": "FPV drone",
+      "category": "Electronics / aviation",
+      "status": "In progress",
+      "summary": "Designing and assembling an FPV drone, with soldering and electronics assembly as the main learning focus.",
+      "description": "This project brings together electronics, assembly and flight-system learning. The portfolio will document the build and the decisions behind the system.",
+      "specs": [],
+      "challenges": [],
+      "progress": [],
+      "documents": [],
+      "photos": [],
+      "github": ""
+    },
+    {
+      "slug": "soldering",
+      "title": "Soldering & electronics",
+      "category": "Practical learning",
+      "status": "In progress",
+      "summary": "Developing soldering skills through hands-on electronics work.",
+      "description": "A record of soldering practice, connections and electronics assembly. Build photographs and observations will show how my technique develops.",
+      "specs": [],
+      "challenges": [],
+      "progress": [],
+      "documents": [],
+      "photos": [],
+      "github": ""
+    },
+    {
+      "slug": "fixed-wing",
+      "title": "Fixed-wing aircraft",
+      "category": "CAD / 3D printing",
+      "status": "Design exploration",
+      "summary": "Exploring printable aircraft structures, modular parts and endurance-focused design.",
+      "description": "A design exploration using CAD and 3D printing. This page will record geometry, component choices and development revisions. No flight validation is claimed.",
+      "specs": [],
+      "challenges": [],
+      "progress": [],
+      "documents": [],
+      "photos": [],
+      "github": ""
+    },
+    {
+      "slug": "raspberry-pi",
+      "title": "Raspberry Pi",
+      "category": "Computing",
+      "status": "Experimentation",
+      "summary": "Learning about small computers, networking and self-hosted services.",
+      "description": "A space to document Raspberry Pi experiments, configurations and what I learn from running services.",
+      "specs": [],
+      "challenges": [],
+      "progress": [],
+      "documents": [],
+      "photos": [],
+      "github": ""
+    },
+    {
+      "slug": "home-lab",
+      "title": "Home servers & storage",
+      "category": "Systems / networking",
+      "status": "Ongoing",
+      "summary": "Working with NAS storage, Proxmox and self-hosted services.",
+      "description": "My home lab combines servers, network storage and virtualisation. This page will document the setup and the problems I work through.",
+      "specs": [],
+      "challenges": [],
+      "progress": [],
+      "documents": [],
+      "photos": [],
+      "github": ""
+    },
+    {
+      "slug": "radio",
+      "title": "Radio communications",
+      "category": "Independent learning",
+      "status": "Learning",
+      "summary": "Studying amateur radio and learning about radio communications.",
+      "description": "An interest in radio systems, antennas and communications. This is a learning record, with no radio qualification claimed.",
+      "specs": [],
+      "challenges": [],
+      "progress": [],
+      "documents": [],
+      "photos": [],
+      "github": ""
+    },
+    {
+      "slug": "programming",
+      "title": "Programming experiments",
+      "category": "Code",
+      "status": "Experimentation",
+      "summary": "Small programming projects and engineering experiments.",
+      "description": "A flexible record of programming work, approaches I try and problems I solve.",
+      "specs": [],
+      "challenges": [],
+      "progress": [],
+      "documents": [],
+      "photos": [],
+      "github": ""
+    }
+  ],
+  "academics": {
+    "subjects": [
+      "Mathematics",
+      "Sciences",
+      "Design & technology",
+      "Humanities"
+    ],
+    "projects": [],
+    "achievements": [],
+    "aspirations": "",
+    "dpPlanning": "Future Diploma Programme planning. Subject choices are still to be added."
+  },
+  "interests": [
+    {
+      "title": "Music & piano",
+      "text": "Playing piano, composing and exploring different musical styles."
+    },
+    {
+      "title": "Aviation",
+      "text": "An interest in aircraft, flight and aviation photography."
+    },
+    {
+      "title": "Writing & future activities",
+      "text": "Space for writing, volunteering, competitions and new interests as I take them on."
+    }
+  ]
+}
