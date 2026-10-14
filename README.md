@@ -4,7 +4,7 @@ A static editorial portfolio for photography, Model United Nations, technology, 
 
 ## Open the website
 
-The ZIP includes the ready-built site in dist/. Open dist/index.html directly in a browser. All navigation uses relative links.
+After cloning this repository, run python3 build.py to generate dist/. Open dist/index.html directly in a browser. All navigation uses relative links. The downloadable ZIP also includes prebuilt pages.
 
 For a local server, install Python 3.10 or newer, open a terminal in this folder and run:
 
@@ -50,4 +50,3 @@ The site uses semantic navigation, a skip link and visible focus. The viewer sup
 Export resized WebP or JPEG images. Image conversion is not automatic. Supply descriptive alt text. No analytics, cookies, external fonts or third-party scripts are included.
 
 Contact details appear only after you approve an address and set contact.approved to true. This is your editorial publishing switch.
-
