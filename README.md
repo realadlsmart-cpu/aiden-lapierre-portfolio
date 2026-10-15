@@ -12,6 +12,12 @@ For a local server, install Python 3.10 or newer, open a terminal in this folder
 
 Visit http://localhost:8000. On Windows, use py instead of python3 if needed.
 
+## Edit with the Content Studio
+
+After the site is built, open `dist/assets/studio.html`. The studio lets you add photograph records, prepare image filenames, update general information, create additional pages, validate the content, and download the updated `portfolio.json` plus selected image files. It runs entirely in your browser and never asks for a GitHub password or token.
+
+Upload the downloaded `portfolio.json` to `content/portfolio.json` on GitHub and upload the photographs to `assets/photos/`. The included GitHub Actions workflow rebuilds the public site automatically.
+
 ## Edit and rebuild
 
 1. Edit content/portfolio.json.
@@ -28,6 +34,7 @@ content/portfolio.json holds editable records.
 build.py contains shared layouts and page templates.
 assets/style.css holds the design system and responsive rules.
 assets/gallery.js handles the menu and native-dialog viewer.
+assets/studio.html and assets/studio.js provide the browser-based content editor.
 dist/ contains the deployable site.
 CONTENT-GUIDE.md explains editing.
 DESIGN-RESEARCH.md records research and design decisions.
