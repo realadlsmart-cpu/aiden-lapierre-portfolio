@@ -10,6 +10,7 @@ from urllib.parse import urlparse
 ROOT = Path(__file__).resolve().parent
 OUT = ROOT / "dist"
 DATA = json.loads((ROOT / "content/portfolio.json").read_text())
+DATA.setdefault("customPages", [])
 NAV = [("Home", ""), ("Photography", "photography"), ("Model UN", "model-un"), ("Technology", "technology"), ("Academics", "academics"), ("About", "about"), ("Other interests", "interests"), ("Contact", "contact")]
 PAGES = []
 
@@ -30,7 +31,7 @@ def external_url(url):
     return url
 
 def validate():
-    for collection in ("galleries", "projects", "conferences"):
+    for collection in ("galleries", "projects", "conferences", "customPages"):
         slugs = set()
         for item in DATA[collection]:
             slug = item["slug"]
@@ -98,7 +99,7 @@ def page(path, title, description, body, active=""):
 <meta name="theme-color" content="#f6f5f1"><meta property="og:type" content="website"><meta property="og:title" content="{e(title)} | Aiden Lapierre"><meta property="og:description" content="{e(description)}">{canonical}
 <link rel="icon" href="{prefix}assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="{prefix}assets/style.css"><script src="{prefix}assets/gallery.js" defer></script>
 </head><body><a class="skip" href="#main">Skip to content</a><header class="wrap"><div class="masthead"><a class="brand" href="{prefix}index.html">Aiden Lapierre</a><span class="location">Student portfolio<br>The Netherlands</span><button class="menu-toggle" aria-expanded="false" aria-controls="navigation" type="button">Menu</button></div><nav class="nav" id="navigation" aria-label="Main navigation">{navigation}</nav></header>
-<main class="wrap" id="main">{body}</main><footer class="wrap footer"><span>© 2026 Aiden Lapierre</span><span><a href="{prefix}about/index.html">About</a><a href="{prefix}contact/index.html">Contact</a><a href="#main">Back to top ↑</a></span></footer>
+<main class="wrap" id="main">{body}</main><footer class="wrap footer"><span>© 2026 Aiden Lapierre</span><span><a href="{prefix}about/index.html">About</a><a href="{prefix}contact/index.html">Contact</a><a href="{prefix}assets/studio.html">Content studio</a><a href="#main">Back to top ↑</a></span></footer>
 <script>document.querySelector('.nav').classList.add('js-ready')</script></body></html>'''
     dest = OUT / path / "index.html"
     dest.parent.mkdir(parents=True, exist_ok=True)
@@ -188,7 +189,8 @@ def remaining():
     body += '<div class="about"><div>'+frame("Aiden Lapierre","Portrait to be added")+'<p class="small" style="margin-top:12px">Based in the Netherlands</p></div><div class="prose"><p>I’m Aiden Lapierre. I study the IB curriculum at the International School of The Hague.</p><p>I enjoy photographing landscapes, streets, wildlife and aircraft, and working with both digital cameras and film. I’m interested in how a photograph records a place or a moment.</p><p>Outside photography, I build and explore electronics and computing systems. My projects include drones, aircraft CAD, Raspberry Pi experiments and a home lab.</p><p>Model United Nations gives me another way to learn about international affairs through research and debate. I also play piano and explore composition.</p><h2>Why this website</h2><p>I wanted one place to bring these interests together and keep a record as my work develops.</p><a class="text-link" href="@/interests/index.html">Other interests ↗</a></div></div>'
     page("about","About","About Aiden Lapierre, a student interested in photography, technology, aviation, international relations and music.",body,"about")
     body = head("06 / Beyond the main subjects","Other interests","Music, writing and a space for activities that develop over time.")
-    body += '<div class="interests">'+"".join(f'<article class="interest"><span class="label">0{i+1}</span><h2>{e(t["title"])}</h2><p>{e(t["text"])}</p></article>' for i,t in enumerate(DATA["interests"]))+'</div>'
+    custom_links = "".join(f'<article class="interest"><span class="label">Page</span><h2><a href="@/pages/{p["slug"]}/index.html">{e(p["title"])}</a></h2><p>{e(p["description"])}</p></article>' for p in DATA["customPages"])
+    body += '<div class="interests">'+"".join(f'<article class="interest"><span class="label">0{i+1}</span><h2>{e(t["title"])}</h2><p>{e(t["text"])}</p></article>' for i,t in enumerate(DATA["interests"]))+custom_links+'</div>'
     page("interests","Other interests","Music, piano composition, writing and future activities.",body,"interests")
     contact = DATA["contact"]
     if contact["approved"] and contact["email"]:
@@ -201,12 +203,23 @@ def remaining():
     body += '<div class="contact-box"><div><h2>Start a conversation</h2><p>I’m interested in hearing about photography opportunities, student collaborations and shared projects.</p></div><div>'+direct+'</div></div>'
     page("contact","Contact","Contact information for Aiden Lapierre’s portfolio.",body,"contact")
 
+
+def custom_pages():
+    for item in DATA["customPages"]:
+        section_html = "".join(section(part.get("heading", "Notes"), '<p>'+e(part.get("body", ""))+'</p>') for part in item.get("sections", []))
+        if not section_html:
+            section_html = pending("Add sections and text in the Content Studio.")
+        body = head("08 / Additional page", item["title"], item["description"], '<a href="@/interests/index.html">Other interests</a> / '+e(item["title"]))
+        body += '<div class="detail"><aside><p class="label">Personal page</p></aside><div class="detail-body">'+section_html+'</div></div>'
+        page("pages/"+item["slug"], item["title"], item["description"], body, "interests")
+
 def main():
     validate()
     if OUT.exists(): shutil.rmtree(OUT)
     OUT.mkdir()
     shutil.copytree(ROOT / "assets", OUT / "assets")
-    home(); photography(); model_un(); technology(); remaining()
+    shutil.copy2(ROOT / "content/portfolio.json", OUT / "assets/portfolio.json")
+    home(); photography(); model_un(); technology(); remaining(); custom_pages()
     page("404","Page not found","This page could not be found.",head("404","Page not found","The page may have moved.")+'<p><a href="../index.html">Return home</a></p>',"")
     # Hosts use dist/404.html at arbitrary paths, so its asset and nav references need an absolute base.
     absolute = DATA.get("siteUrl", "").rstrip("/") + "/" if DATA.get("siteUrl") else "/"
